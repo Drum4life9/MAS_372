@@ -5,7 +5,7 @@ college = read.csv("../College.csv")
 # b)
 rownames(college)=college[,1]
 college = college[,-1]
-#fix(college)
+fix(college)
 
 # c) 
 #   i. 
@@ -13,10 +13,10 @@ print(summary(college))
 
 #   ii.
 college$Private = as.factor(college$Private)
-#pairs(college[,1:10])
+pairs(college[,1:10])
 
 #   iii.
-#boxplot(college$Outstate, college$Private, xlab="Outstate | Private")
+boxplot(college$Outstate, college$Private, xlab="Outstate | Private")
 
 #   iv.
 Elite=rep("No", nrow(college))
@@ -25,7 +25,7 @@ Elite=as.factor(Elite)
 college=data.frame(college,Elite)
 print("--------------------")
 print(summary(Elite))
-#boxplot(college$Outstate, college$Elite, xlab="Outstate | Elite")
+boxplot(college$Outstate, college$Elite, xlab="Outstate | Elite")
 
 #   v. 
 par(mfrow=c(2,2))
