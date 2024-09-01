@@ -1,5 +1,29 @@
-df=data.frame(x=c(2,4,5,6,8), y=c(7,9,10,15,14))
+library(MASS)
+library(ISLR)
 
-summary(lm(y ~ x, data=df))
+# a)
 
-plot(df)
+model = lm(mpg ~ horsepower, data=Auto)
+
+print(summary(model))
+
+coeffs = summary(model)$coefficients
+
+B0 = coeffs["(Intercept)", "Estimate"]
+B1 = coeffs["horsepower", "Estimate"]
+
+RSEB0 = coeffs["(Intercept)", "Std. Error"]
+RSEB1 = coeffs["horsepower", "Std. Error"]
+
+print('Sigma Value (RSE): -----')
+print(sigma(model))
+
+print('B0 Confidence interval: ---')
+print('[B0 - 2 * RSEB0, B0 + 2 * RSEB0]')
+print(B0 - 2 * RSEB0)
+print(B0 + 2 * RSEB0)
+
+print('B1 Confidence interval: ---')
+print('[B1 - 2 * RSEB1, B1 + 2 * RSEB1]')
+print(B1 - 2 * RSEB1)
+print(B1 + 2 * RSEB1)

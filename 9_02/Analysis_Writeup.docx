@@ -1,0 +1,32 @@
+ Question 8
+
+a) The full summary is as follows:
+
+	I)
+Yes, there is a relationship between the response and the predictor, as we have 2 non-zero coefficients (B0 = 39.935 and B1 = -.0158), each of which are significant at a level of p-value = essentially 0 (as shown by the coefficients section of the table)
+
+ii) The relationship is fairly strong between the response and the predictor, as we have an R^2 value of .6059. This is not super strong, but is strong enough to suggest a relationship, as around 60% of the variation in mpg can be accounted for by the change in horsepower
+
+iii) The relationship is a negative relationship between mpg and horsepower, since the B1 coefficient is negative. As horsepower goes up, mpg goes down.
+
+Other requests)
+I extracted the coefficients as such:
+
+
+
+
+
+
+RSE: 4.906
+
+
+95% confidence intervals:
+RSE for B0: .717
+RSE for B1: .006
+
+B0: 
+[38.5, 41.37]
+
+
+B1:
+[-.17, -.145]
