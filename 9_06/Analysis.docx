@@ -1,0 +1,32 @@
+﻿Question 10
+
+a) I created a simple lm() using the Carseats dataset with the data requested
+
+b) Here is the summary of model. The intercept of 13.04, Price estimate of -.054, and US factor with Estimate of 1.2 are all considered statistically significant. The Urban factor has an incredibly high p-value, and is therefore considered not significant towards the overall Sales of the carseats prediction
+
+c) Sales approx = 
+13.043 - .054 * Price -.022 * UrbanYes + 1.20 * USYes
+, where if Urban or US = yes, then UrbanYes or USYes = 1, else 0
+
+d) We can reject the null hypothesis of Bj = 0 for each predictor except UrbanYes, since all of them have p-values that are at the *** significance level (below .001)
+
+
+
+
+e) I repeated part a, but left out the Urban predictor.
+
+f) I extracted the R^2 variable from both model and model2 using summary(model)$r.squared
+
+Both of these models perform pretty poorly, however the R^2 for model 1 is ever so slightly better, probably due to its added predictor, even if it’s not statistically significant
+
+g) Shown is are the confidence intervals for the intercept, Price, and USYes coefficients for the second model from part e. Each of these are at a 95% confidence level
+
+
+Supp
+
+a) I wrote the model using the following screenshot, and got the summary results of the second. Adding the interaction term did not help the model much at all, if anything. The R^2 statistic is still the same
+
+b) In the summaries, you can see how I called each function under the Call: header. The estimates are all slightly between the two models, but the RSE and R^2 are the same. They produce slightly better results than the simple linear model.
+
+c) The difference between poly() and I() is that the poly() command by default picks Coefficients for X and X^2 that are not correlated with each other. One source online said that the raw=FALSE (the default option) produces coefficients that are orthogonal to each other, while there is typically collinearity among the coefficients when raw=TRUE. In this second screenshot, I set raw=TRUE, which matches that of the I(Price^2) model: (See next page)
+
