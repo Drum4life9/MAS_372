@@ -1,0 +1,37 @@
+﻿Question 8:
+
+b) I plotted the predictor on the x-axis and the response on the y-axis. Here is the resulting plot:
+
+
+
+
+
+
+
+
+
+
+c) Here is the resulting plot of the residuals of the least squared fit. This doesn’t look very great. As we increase along the x-axis in this plot, the residuals get much more spread out. We would theoretically like this to remain roughly consistent, however in this case it seems as if a linear model would not be the best fit
+
+
+Question 14:
+
+a) y = 2 + 2*x1 + .3*x2: B0 = 2, B1 = 2, B2 = .3
+
+b) The correlation is Cor(x1,x2)=.226.
+Plot: 
+
+c) B0 = 2.13
+	B1 = 1.75
+	B2 = .74
+These are roughly fairly close to the true B values. The B2 value is pretty off
+
+We can reject the null that B0 and B1 = 0, as we have very low p-values. We cannot reject the null B2 = 0, since we have a p-value of .52 
+
+d) The R^2 is slightly worse than model with x1 and x2. Both the intercept and B1 coefficients are both statistically significant
+
+e) The R^2 is not very good for this model, and B2 is not statistically significant, as we have a very high p-value. This model is not great at all.
+
+f) These results do not contradict each other, B2 is not statistically significant in all instances. The B1 coefficient has been the closest to the actual value and has performed best in the linear model
+
+g) The B2 coefficient now becomes statistically significant in all the models where it is used. Interestingly, in the model with x1 and x2, the estimates for the coefficient are now very different from the actual values, but the models seem to fit a lot better than what they did before adding the point. The new point is definitely an outlier to the rest of the set for the x2 model, and it has a lot of pull on the linear model fit that only uses x2. 
