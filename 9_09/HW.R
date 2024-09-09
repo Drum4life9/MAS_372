@@ -60,3 +60,11 @@ modele = lm(y ~ x2)
 print(summary(modele))
 
 plot(x1,x2)
+
+
+# IN CLASS
+print(summary(modelc))
+y_pred = 2 + 2*x1 + .3*x2
+diff = y-y_pred
+print(sum(diff^2))
+print(1.077^2 * (100 - 2 - 1))
