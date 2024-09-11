@@ -1,0 +1,5 @@
+a) I used the median function to pull out the median from the Auto$mpg column, and then used two lines to create a vector of 0s and 1s based on if the mpg is > median_mpg
+
+b) Here are some plots in order of how I checked some relationships: Box between mpg01 and # of cylinders, Box between mpg01 and acceleration, Box between mpg01 and weight, and scatterplot between mpg01 and displacement. The box plots all show a positive relationship between mpg01 and the corresponding measure, while the plot shows a negative relationship.
+
+c) I created an index column in a set of the randomized data, and then for the training set took the first 300 values, and test set the last 92 values
