@@ -66,6 +66,7 @@ print("------------------------")
 # c)
 log_model = glm(y ~ weight, data = crabs, 
                 family = binomial)
+print(summary(log_model))
 p = predict(log_model, data.frame(weight=5.2),  type = "response")
 print("logit of log glm: ")
 print(log(p/(1-p)))
@@ -75,7 +76,7 @@ print("------------------------")
 pi_hat = .9968
 print(log(pi_hat / (1 - pi_hat)))
 
-# Question 3.7 ------------------
+# Question 3.8 ------------------
 
 print("------------------------")
 

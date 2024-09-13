@@ -1,0 +1,23 @@
+﻿a) I used the median function to pull out the median from the Auto$mpg column, and then used two lines to create a vector of 0s and 1s based on if the mpg is > median_mpg
+
+b) Here are some plots in order of how I checked some relationships: Box between mpg01 and # of cylinders, Box between mpg01 and acceleration, Box between mpg01 and weight, and scatterplot between mpg01 and displacement. The box plots all show a positive relationship between mpg01 and the corresponding measure, while the plot shows a negative relationship.
+
+c) I created an index column in a set of the randomized data, and then for the training set took the first 300 values, and test set the last 92 values
+
+f) After fitting a logic model, I created a confusion matrix and found the mean of correct guesses for mpo01 based on cylinders, displacement, weight, and acceleration. Pretty decent test results!
+
+
+
+Question AG 3.7
+
+a) The linear model performed very poorly, with an R^2 of 1.562. Both coefficients were considered significant, but overall the model was not good.
+
+c) By fitting the model to a logistic regression, both coefficients are still considered significant. By manipulating the p(x) we can get the logit of weight = 5.2 as shown:
+
+Question AG 3.8
+
+a) The probit model performed just as well as the regular logistic regression model did. 
+
+b) Our prediction for pi_hat is very confidently close to 1
+
+c) The difference between quartiles accounts for a 33% change in probability that the crab has a satellite
