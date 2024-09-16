@@ -1,0 +1,17 @@
+ Question 13
+
+a) I read in the dataset, and fitted a glm with family = Poisson(). Here is the summary: 
+
+
+
+
+
+b) I used the model to predict a female crab’s satellites at weight=2.44
+
+c) After extracting the coefficient of B_hat from the model, I used a confidence interval to get the appropriate confidence for B at 95%. I then took 10^value, as the Poisson uses log-linear, so to invert the log I applied an exponential. The 95% confidence interval shows a .46 - .71 multiplicative increase in 1kg of x, or a satellite gain of 2.88 to 5.18 crabs
+
+Question 14
+
+a) I imported the MASS library and used the glm.nb function to produce this summary: The Dispersion parameter is .931, so it suggests a slight under-dispersion. It will fit just a little bit better, its AIC is also slightly lower.
+
+b) The confidence interval is wider with the negative binomial because it accounts for the under-dispersion, meaning that it takes into consideration the variance of the model, which Is more flexible when using a Negative Binomial dist.
