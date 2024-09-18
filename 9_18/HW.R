@@ -2,7 +2,7 @@ library(MASS)
 # Question 13 ----------------
 
 # a)
-crabs = read.csv('Crabs.csv')
+crabs = read.csv('../Crabs.csv')
 
 p_model = glm(sat ~ weight, family = poisson(), data = crabs)
 print(summary(p_model))
