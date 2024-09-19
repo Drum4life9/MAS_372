@@ -1,4 +1,7 @@
 library(MASS)
+library(lmtest) 
+
+
 # Question 13 ----------------
 
 # a)
@@ -12,7 +15,7 @@ pred = predict(p_model, data.frame(weight=2.44), type="response")
 print('Predicted Y:')
 print(pred)
 
-# c)
+# c)c
 print('------------------------------------------------')
 B_hat = coef(p_model)[2]
 print('B_hat:')
