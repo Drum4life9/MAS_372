@@ -1,5 +1,4 @@
 library(MASS)
-library(lmtest) 
 
 
 # Question 13 ----------------
