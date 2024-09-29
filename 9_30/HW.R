@@ -18,21 +18,24 @@ boot.fn <- function(data, index) {
            subset = index)) 
 }
 
-print(boot(Default, statistic = boot.fn, 1))
+# c)
+print(boot(Default, statistic = boot.fn, 100))
 
 # Question 9
 
 # a) 
 mu_hat = mean(Boston$medv)
+print(mu_hat)
 
 # b)
 std_err_mu_hat = sd(Boston$medv) / sqrt(nrow(Boston))
+print(std_err_mu_hat)
 
 # c)
 boot.fn <- function(data, index) {
   sd(data[index,]$medv) / sqrt(nrow(data[index,]))
 }
-std_err_boot = unname(unlist(boot(Boston, statistic = boot.fn, 10)[1]))
+std_err_boot = unname(unlist(boot(Boston, statistic = boot.fn, 100)[1]))
 print(std_err_boot)
 
 # d)
@@ -43,7 +46,8 @@ print(mu_hat - 2 * std_err_boot)
 print(mu_hat + 2 * std_err_boot)
 
 # e)
-mu_hat_med = median(Boston$medv, na.rm = TRUE)
+mu_hat_med = median(Boston$medv)
+print(mu_hat_med)
 
 # f)
 boot.fn <- function(data, index) {
