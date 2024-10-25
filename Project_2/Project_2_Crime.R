@@ -155,3 +155,61 @@ prune_tree.pred = predict(prune_tree_model, test)
 
 # create Tree MSE
 test_MSE_prune_tree = mean((test$crim - prune_tree.pred)^2)
+
+
+library(ISLR2)
+library(gbm)
+library(leaps)
+library(splines)
+library(randomForest)
+s_data <- Hitterss_data <- Hitterss_data <- Hitters
+
+# part (a)
+s_data <- subset(s_data, !is.na(Salary))
+s_data$Salary <- log(s_data$Salary)
+
+# part (b)
+train <- s_data[1:200,]
+test <- s_data[201:263,]
+
+# part (c)
+set.seed(12345)
+x = c(1:10)
+y = c(1:10)
+test_mse <- c(1:10)
+for (i in 0:10) {
+  x[i] = 1/2^i
+  boost.salary <- gbm(Salary ~ ., data = train, distribution = "gaussian",
+                      n.trees = 1000, shrinkage = 1/2^i)
+  y[i] = boost.salary$train.error[1000]
+  test_mse[i] <- (mean((predict(boost.salary,test) - test$Salary)^2))  
+}
+
+plot(x,y,log='y',type='b',col="blue",xlab = "Shrinkage Parameter",
+     ylab = "Training MSE")
+
+# Part (d)
+plot(x, test_mse, type='b', col="red", xlab="Shrinkage Parameter",
+     ylab = "Test MSE")
+
+# Part (e)
+best_subset_model <- regsubsets(
+  Salary ~ ., data = train, method = "exhaustive", nvmax = 19)
+
+summary(best_subset_model)$cp # Model 8 is best
+
+train$Division <- ifelse(train$Division == "E", 1, 0)
+test$Division <- ifelse(test$Division == "E", 1, 0)
+
+ns.model <- lm(Salary ~ ns(AtBat, df=4) + ns(Hits, df=4) + ns(Walks, df=4)
+               + ns(Years, df=4) + ns(CRuns, df=4) + ns(CWalks, df=4) +  
+                 Division + ns(PutOuts, df=4), data=train)
+summary(ns.model)
+
+ns.preds <- predict(ns.model, test)
+ns.mse <- mean((ns.preds-test$Salary)^2)
+
+# Part (g)
+set.seed(12345)
+bag.model <- randomForest(Salary ~ ., data=train, mtry = 19, importance = TRUE)
+bag.mse <- mean((predict(bag.model, test) - test$Salary)^2)
