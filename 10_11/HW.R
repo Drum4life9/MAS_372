@@ -64,5 +64,44 @@ test_y = test$Apps
 mean((lasso.pred - test_y)^2)
 print(lasso.pred_coef)
 
-# Supp
+# Supp 1
+
+# a)
+set.seed(2)
+variables = matrix(rnorm(100*200),nrow=200, dimnames=list(NULL, paste(1:100)))
+
+# b)
+y = rnorm(200)
+data = data.frame(y, variables)
+
+# c)
+lm = lm(y ~ ., data = data)
+
+# d)
+print(summary(lm))
+# 2 significant
+
+# e) 
+lm_2 = lm(y ~ X9 + X74 + X87, data = data)
+print(summary(lm_2))
+
+
+# Supp 2
+
+# a)
+set.seed(2)
+variables = matrix(rnorm(195*200),nrow=200, dimnames=list(NULL, paste(1:195)))
+y = rnorm(200)
+data = data.frame(y, variables)
+lm = lm(y ~ ., data = data)
+print(summary(lm))
+
+# b)
+set.seed(2)
+variables = matrix(rnorm(300*200),nrow=200, dimnames=list(NULL, paste(1:300)))
+y = rnorm(200)
+data = data.frame(y, variables)
+lm = lm(y ~ ., data = data)
+print(summary(lm))
+
 
