@@ -1,0 +1,18 @@
+ Question 3
+
+a) Super interesting stuff! The x_lis function is very variable, and jumps around all over the place. When we apply the filter moving average, it takes these differences and compresses them 
+
+b) This felt pretty expected. As I mentioned from the PA assignment, cos is periodic, so the graph is not surprising of just the x values, and the moving average 4 points would always end up being 0 no matter how you arrange the 1 + 0 + -1 + 0 since the cos has period 4 with respect to t
+
+c) Now there’s noise in every point. The average moving function kind of looks like mini cosine functions bobbling about due to the randomness in the errors. 
+
+d) Any of the moving averages with noise variables are obviously much more interesting than just the regular function itself. There are some minute distinguishable(ish) patterns that you can see, such as the mini cosines in the graph from c. The moving average in a just looks jaggedy, and in b is flat because of the periodic nature of cosine over every 4 t’s
+
+Sup 3
+
+a) w*(s_t_1) = (w*x_t_1 + w^2 * x_t_2 + …) / 1/(1-w), so the only thing we need to get is the x_t in the numerator. Adding (1-w) * x_t allows us to find the common denominator of 1/(1-w) to both the numerator and denominator, and add x_t to the numerator no problemo
+
+b) If w is close to 1, then the previous points in the series are very highly considered relevant to the value of x_t, since as we square them, they remain close to 1. If w is close to 0, then the points further away from x_t don’t matter as much. If w is in the middle, this provides a tradeoff to how much x_t depends on its predecessors
+
+c) W = .5: 			w = .9		w = .1 
+When w is smaller, the average point cares more about the points that are immediately behind it, not taking many other points into consideration, so it is a lot more variable since the x function is very variable, opposite for larger w
