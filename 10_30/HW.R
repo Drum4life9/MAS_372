@@ -67,3 +67,17 @@ print(km2$cluster)
 # e)
 km4 = kmeans(train_data, 4, nstart = 20)
 print(km4$cluster)
+
+k = c(1:10)
+
+tot_rep = rep(0,10)
+tot_rep_perc = rep(0,10)
+for (i in 1:10) {
+  model = kmeans(train_data, i, nstart=20)
+  tot_rep_perc[i] = model$betweenss / model$totss
+  tot_rep[i] = model$tot.withinss
+}
+
+par(mfrow=c(1,2))
+plot(k, tot_rep_perc)
+plot(k, tot_rep)
