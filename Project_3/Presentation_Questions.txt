@@ -1,0 +1,10 @@
+For sup 2:
+    - Which method for data generation did you use?
+
+For sup 3:
+    - Did you consider or try any other methods
+        for fitting your model?
+    - Did you get a chance to check your model with
+        a standard linear model? How much of a difference
+        did your score make a difference?
+    - How long did the auto.arima take?
