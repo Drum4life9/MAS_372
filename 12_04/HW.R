@@ -10,14 +10,12 @@ plot(data)
 plot(diff(data))
 # diff data looks a lot better
 
-par(mfrow=c(2,1))
-acf(data, lag.max = 50)
-pacf(data, lag.max = 50)
+acf2(data, 50)
 # Acf has peaks around every year, 
 # suggests something seasonal.
 # The PACF has lags just after 1 of every year
 
-model = sarima(data, 1, 1, 0, 0, 1, 0, 12)
+model = sarima(data, 1,1,0, 0,1,0, 12)
 # ok, so this has some good info
 # need to bump up MA of model due to acf
 model = sarima(data, 1,1,0,  0,1,1,  12)
@@ -25,7 +23,6 @@ model = sarima(data, 1,1,0,  0,1,1,  12)
 # still a few outliers on the normal QQ plot.
 # BIC went down, but we still have some spikes
 # in ACF plot. 
-par(mfrow=c(1,1))
 pacf(data, lag.max = 50)
 # maybe try bumping up AR value in sarima
 model = sarima(data, 2,1,0,  0,1,1,  12)
@@ -56,8 +53,10 @@ pp.test(data, alternative = "explosive")
 data = oil
 plot(data)
 data_log = diff(log(data))
+plot(data_log)
 u = sarima(log(data), 2,1,1, 0,0,1, 3)
 acf2(resid(u$fit)^2, 50)
 
-summary(garchFit(~arma(1,2) + garch(1,0), data_log))
-# residuals look good!
+gmodel = garchFit(~arma(2,1) + garch(1,0), data_log)
+
+summary(gmodel)
